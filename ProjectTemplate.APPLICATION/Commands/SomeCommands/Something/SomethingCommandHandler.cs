@@ -1,0 +1,26 @@
+﻿using MediatR;
+using ProjectTemplate.APPLICATION.Dtos.Commands.SomeCommands.Something;
+using ProjectTemplate.APPLICATION.Interfaces.Persistence.CommandRepositories;
+using ProjectTemplate.DOMAIN.AggregatesModel.SomeAggregate;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ProjectTemplate.APPLICATION.Commands.SomeCommands.Something
+{
+    public class SomethingCommandHandler : IRequestHandler<AddSomethingCommand, long>
+    {
+        private ISomeCommandRepository _repository { get; set; }
+        public SomethingCommandHandler(ISomeCommandRepository repository)
+        {
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        }
+        public async Task<long> Handle(AddSomethingCommand request, CancellationToken cancellationToken)
+        {
+            var some = new Some(request.SomeValue, request.SomeEnum);
+            _repository.Add(some);
+            await _repository.UnitOfWork.SaveChangesAsync();
+            return some.Id;
+        }
+    }
+}
