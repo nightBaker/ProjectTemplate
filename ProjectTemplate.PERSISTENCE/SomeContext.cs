@@ -3,7 +3,7 @@ using ProjectTemplate.DOMAIN.AggregatesModel.SomeAggregate;
 
 namespace ProjectTemplate.PERSISTENCE
 {
-    public class SomeDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    public class SomeDbContext : DbContext
     {
         public SomeDbContext(DbContextOptions<SomeDbContext> options)
             : base(options)

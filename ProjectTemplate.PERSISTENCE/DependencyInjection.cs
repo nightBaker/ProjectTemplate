@@ -17,7 +17,7 @@ namespace ProjectTemplate.PERSISTENCE
         public static IServiceCollection AddSqlPersistence(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<SomeDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("SomeDb")));
+                options.UseSqlServer(configuration.GetConnectionString("ProjectTemplateDbConnection")));
 
             services.AddScoped<ISomeCommandRepository, SomeCommandRepository>();
             services.AddScoped<ISomeQueryService, SomeQueryService>();
