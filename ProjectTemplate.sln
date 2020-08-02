@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectTemplate.WEB.Client"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectTemplate.WEB.Shared", "ProjectTemplate.WEB\Shared\ProjectTemplate.WEB.Shared.csproj", "{1BF95589-B649-4596-B6D8-C3E490E527F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTemplate.AppUser", "ProjectTemplate.AppUser\ProjectTemplate.AppUser.csproj", "{49007098-1E12-4F7E-B263-0AC9C87E3166}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectTemplate.AppUser", "ProjectTemplate.AppUser\ProjectTemplate.AppUser.csproj", "{49007098-1E12-4F7E-B263-0AC9C87E3166}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CF4DBFA6-897F-410F-945F-76B7602BD810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,10 @@ Global
 		{49007098-1E12-4F7E-B263-0AC9C87E3166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49007098-1E12-4F7E-B263-0AC9C87E3166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49007098-1E12-4F7E-B263-0AC9C87E3166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF4DBFA6-897F-410F-945F-76B7602BD810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF4DBFA6-897F-410F-945F-76B7602BD810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF4DBFA6-897F-410F-945F-76B7602BD810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF4DBFA6-897F-410F-945F-76B7602BD810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,10 +14,10 @@ namespace ProjectTemplate.PERSISTENCE
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddSqlPersistence(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<SomeDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("ProjectTemplateDbConnection")));
+                options.UseNpgsql(configuration.GetConnectionString("ProjectTemplateDbConnection")));
 
             services.AddScoped<ISomeCommandRepository, SomeCommandRepository>();
             services.AddScoped<ISomeQueryService, SomeQueryService>();

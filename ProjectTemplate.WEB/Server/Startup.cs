@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using ProjectTemplate.AppUser;
+using ProjectTemplate.PERSISTENCE;
+using ProjectTemplate.APPLICATION;
 
 namespace ProjectTemplate.WEB.Server
 {
@@ -28,9 +30,12 @@ namespace ProjectTemplate.WEB.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplication(Configuration);
+            services.AddPersistence(Configuration);
+
             services.AddDbContext<UserDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(
+                    Configuration.GetConnectionString("ProjectTemplateUserDbConnection")));
 
             services.AddDefaultIdentity<ProjectTemplate.AppUser.AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<UserDbContext>();
