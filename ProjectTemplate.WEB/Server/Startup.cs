@@ -21,7 +21,9 @@ namespace ProjectTemplate.WEB.Server
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json");
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
