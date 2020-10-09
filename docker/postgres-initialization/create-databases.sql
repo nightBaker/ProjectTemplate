@@ -1,0 +1,3 @@
+CREATE DATABASE ProjectTemplateDb;
+CREATE DATABASE ProjectTemplateUserDb;
+CREATE DATABASE ProjectTemplateHangfireDb;

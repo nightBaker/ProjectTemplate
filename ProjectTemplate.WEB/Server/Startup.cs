@@ -14,6 +14,9 @@ using System.Linq;
 using ProjectTemplate.AppUser;
 using ProjectTemplate.PERSISTENCE;
 using ProjectTemplate.APPLICATION;
+using Hangfire;
+using Hangfire.PostgreSql;
+using System;
 
 namespace ProjectTemplate.WEB.Server
 {
@@ -32,6 +35,13 @@ namespace ProjectTemplate.WEB.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHangfire(configuration => configuration
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UsePostgreSqlStorage(Configuration.GetConnectionString("ProjectTemplateHangfireDbConnection")));
+
+
             services.AddApplication(Configuration);
             services.AddPersistence(Configuration);
 
@@ -53,7 +63,7 @@ namespace ProjectTemplate.WEB.Server
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IBackgroundJobClient backgroundJobs, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -72,6 +82,9 @@ namespace ProjectTemplate.WEB.Server
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
+            app.UseHangfireDashboard();
+            backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
+
             app.UseRouting();
 
             app.UseIdentityServer();
@@ -83,6 +96,7 @@ namespace ProjectTemplate.WEB.Server
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
+                endpoints.MapHangfireDashboard();
             });
         }
     }

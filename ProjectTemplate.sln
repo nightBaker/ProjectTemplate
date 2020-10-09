@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectTemplate.WEB.Shared"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectTemplate.AppUser", "ProjectTemplate.AppUser\ProjectTemplate.AppUser.csproj", "{49007098-1E12-4F7E-B263-0AC9C87E3166}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CF4DBFA6-897F-410F-945F-76B7602BD810}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker\docker-compose.dcproj", "{CF4DBFA6-897F-410F-945F-76B7602BD810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
