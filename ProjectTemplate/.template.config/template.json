@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "NightBaker",
+  "classifications": [ "blazor DDD cqrs mediatr efcore automapper fluentvalidation clean architecture" ],
+  "name": "NightBaker blazor project clean architecture template",
+  "identity": "NightBakerBlazor",
+  "shortName": "NightBakerBlazor",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "ProjectTemplate",  // every entry of this string in source code or in project names will be replace with given value
+  "preferNameDirectory": true  
+}
