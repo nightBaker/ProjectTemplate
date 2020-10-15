@@ -2,9 +2,9 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "NightBaker",
   "classifications": [ "blazor DDD cqrs mediatr efcore automapper fluentvalidation clean architecture" ],
-  "name": "NightBaker blazor project clean architecture template",
+  "name": "Blazor clean architecture project template",
   "identity": "NightBakerBlazor",
-  "shortName": "NightBakerBlazor",
+  "shortName": "CleanBlazor",
   "tags": {
     "language": "C#",
     "type": "project"
