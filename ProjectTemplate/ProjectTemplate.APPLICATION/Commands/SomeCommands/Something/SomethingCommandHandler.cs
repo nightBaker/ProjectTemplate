@@ -10,8 +10,8 @@ namespace ProjectTemplate.APPLICATION.Commands.SomeCommands.Something
 {
     public class SomethingCommandHandler : IRequestHandler<AddSomethingCommand, long>
     {
-        private ISomeCommandRepository _repository { get; set; }
-        public SomethingCommandHandler(ISomeCommandRepository repository)
+        private ICommandRepository<Some> _repository { get; set; }
+        public SomethingCommandHandler(ICommandRepository<Some> repository)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }

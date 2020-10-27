@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjectTemplate.APPLICATION.Interfaces.Persistence.QueryRepositories
 {
-    public interface ISomeQueryService
+    public interface IQueryService<TEntity, T>
     {
-        Task<SomeDto> GetAsync(long Id);
-        Task<SomethingListDto> GetAll(SieveModel sieveModel);
+        Task<T> GetAsync(long Id);
+        Task<ListResultsDto<T>> GetAllAsync(SieveModel sieveModel);
     }
 }

@@ -19,8 +19,8 @@ namespace ProjectTemplate.PERSISTENCE
             services.AddDbContext<SomeDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("ProjectTemplateDbConnection")));
 
-            services.AddScoped<ISomeCommandRepository, SomeCommandRepository>();
-            services.AddScoped<ISomeQueryService, SomeQueryService>();
+            services.AddScoped(typeof(ICommandRepository<>),typeof( CommandRepository<>));
+            services.AddScoped(typeof(IQueryService<,>), typeof(QueryService<,>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
