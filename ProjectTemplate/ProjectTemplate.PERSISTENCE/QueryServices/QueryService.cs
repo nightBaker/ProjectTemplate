@@ -25,6 +25,7 @@ namespace ProjectTemplate.PERSISTENCE.Services.Queries
             _context = context;
             _mapper = mapper;
             _sieveProcessor = sieveProcessor;
+            _dbSet = _context.Set<TEntity>();
         }
 
         public async Task<ListResultsDto<T>> GetAllAsync(SieveModel sieveModel)
