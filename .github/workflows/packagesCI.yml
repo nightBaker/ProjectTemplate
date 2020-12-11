@@ -30,3 +30,4 @@ jobs:
         PROJECT_FILE_PATH: ProjectTemplate.csproj
         PACKAGE_NAME: NightBaker.ProjectTemplate.0.1.2
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+        VERSION_STATIC: 1.1.${{secrets.GITHUB_RUN_ID}}
