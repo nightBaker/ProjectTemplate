@@ -1,5 +1,6 @@
 ## Prerequisites
-Now works only in Visual Studio 2019 preview and dotnet 5 preview sdk
+* .NET 5
+* Docker (optionaly for databases)
 
 ## How to use
 
