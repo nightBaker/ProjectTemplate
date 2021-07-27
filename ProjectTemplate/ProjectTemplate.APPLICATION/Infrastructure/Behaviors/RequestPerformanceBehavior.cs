@@ -29,7 +29,7 @@ namespace ProjectTemplate.APPLICATION.Infrastructure.Behaviors
             {
                 var name = typeof(TRequest).Name;
 
-                _logger.LogWarning("Payments Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@Request}", name, _timer.ElapsedMilliseconds, request);
+                _logger.LogWarning("Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@Request}", name, _timer.ElapsedMilliseconds, request);
             }
 
             return response;
