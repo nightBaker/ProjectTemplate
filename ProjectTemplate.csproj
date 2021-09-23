@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageType>Template</PackageType>    
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0.1</PackageVersion>
     <PackageId>NightBaker.ProjectTemplate</PackageId>
     <Title>Blazored clean architecture</Title>
     <Authors>NightBaker</Authors>
@@ -11,7 +12,7 @@
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <ContentTargetFolders>content</ContentTargetFolders>
+    <ContentTargetFolders>content</ContentTargetFolders>    
     <RepositoryUrl>https://github.com/nightBaker/ProjectTemplate</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Docker compose service name</PackageReleaseNotes>
