@@ -4,6 +4,9 @@
 
 ## How to use
 
+[![NuGet Badge](https://buildstats.info/nuget/NightBaker.ProjectTemplate)](https://www.nuget.org/packages/NightBaker.ProjectTemplate/)
+
+
 * Install template
 ```cmd
     dotnet new --install NightBaker.ProjectTemplate::0.1.0
