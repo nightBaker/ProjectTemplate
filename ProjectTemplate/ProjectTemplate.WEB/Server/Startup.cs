@@ -17,6 +17,7 @@ using ProjectTemplate.APPLICATION;
 using Hangfire;
 using Hangfire.PostgreSql;
 using System;
+using FluentValidation.AspNetCore;
 
 namespace ProjectTemplate.WEB.Server
 {
@@ -60,7 +61,8 @@ namespace ProjectTemplate.WEB.Server
             services.AddAuthentication()
                 .AddIdentityServerJwt();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                .AddFluentValidation();
             services.AddRazorPages();
         }
 

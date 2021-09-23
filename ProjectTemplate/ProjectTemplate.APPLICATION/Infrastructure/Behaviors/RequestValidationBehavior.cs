@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ValidationContext = FluentValidation.ValidationContext;
+
 using ValidationException = FluentValidation.ValidationException;
 
 namespace ProjectTemplate.APPLICATION.Infrastructure.Behaviors
@@ -19,7 +19,7 @@ namespace ProjectTemplate.APPLICATION.Infrastructure.Behaviors
         }
         public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var context = new ValidationContext(request);
+            var context = new FluentValidation.ValidationContext<TRequest>(request);
 
             var failures = _validators
                 .Select(v => v.Validate(context))
