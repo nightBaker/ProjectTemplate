@@ -28,6 +28,6 @@ jobs:
       uses: brandedoutcast/publish-nuget@v2.5.5
       with: 
         PROJECT_FILE_PATH: ProjectTemplate.csproj
-        PACKAGE_NAME: NightBaker.ProjectTemplate.0.1.2
+        PACKAGE_NAME: NightBaker.ProjectTemplate
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-        VERSION_STATIC: 1.1.${{secrets.GITHUB_RUN_ID}}
+        VERSION_STATIC: 1.1.${{env.GITHUB_RUN_ID}}
