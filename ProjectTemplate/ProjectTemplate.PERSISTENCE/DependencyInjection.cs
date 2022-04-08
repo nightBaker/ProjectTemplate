@@ -16,6 +16,8 @@ namespace ProjectTemplate.PERSISTENCE
     {
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
             services.AddDbContext<SomeDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("ProjectTemplateDbConnection")));
 

@@ -36,7 +36,7 @@ namespace ProjectTemplate.WEB.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDatabaseDeveloperPageExceptionFilter();
+           
 
             services.AddHangfire(configuration => configuration
                 .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
@@ -72,7 +72,7 @@ namespace ProjectTemplate.WEB.Server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();                
-                app.UseMigrationsEndPoint();
+                //app.UseMigrationsEndPoint();
                 app.UseWebAssemblyDebugging();
             }
             else

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTemplate.APPLICATION.Infrastructure.Behaviors
 {
-    public class RequestPerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class RequestPerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest: MediatR.IRequest<TResponse>
     {
         private readonly Stopwatch _timer;
         private readonly ILogger<TRequest> _logger;
