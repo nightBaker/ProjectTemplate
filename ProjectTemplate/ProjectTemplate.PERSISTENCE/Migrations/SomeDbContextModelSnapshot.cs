@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ProjectTemplate.PERSISTENCE;
 
+#nullable disable
+
 namespace ProjectTemplate.PERSISTENCE.Migrations
 {
     [DbContext(typeof(SomeDbContext))]
@@ -14,16 +16,18 @@ namespace ProjectTemplate.PERSISTENCE.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("ProjectTemplate.DOMAIN.AggregatesModel.SomeAggregate.Some", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<int>("SomeEnum")
                         .HasColumnType("integer");
@@ -33,7 +37,7 @@ namespace ProjectTemplate.PERSISTENCE.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Somes");
+                    b.ToTable("Somes", (string)null);
                 });
 #pragma warning restore 612, 618
         }

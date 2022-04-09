@@ -4,6 +4,8 @@ using ProjectTemplate.APPLICATION.Interfaces.Persistence.CommandRepositories;
 using ProjectTemplate.DOMAIN.AggregatesModel.SomeAggregate;
 using ProjectTemplate.DOMAIN.SeedWork;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -26,8 +28,13 @@ namespace ProjectTemplate.PERSISTENCE.Repositories.Commands
         public void Add(T item) => _dbSet.Add(item);
 
         public Task<T> GetAsync(Expression<Func<T, bool>> predicate) =>
-            _dbSet.FirstOrDefaultAsync(predicate);
+            GetAggreagteQueryable().FirstOrDefaultAsync(predicate);
+
+        public Task<List<T>> GetListAsync(Expression<Func<T, bool>> predicate) =>
+            GetAggreagteQueryable().Where(predicate).ToListAsync();
 
         public T Remove(T item) => _dbSet.Remove(item).Entity;
+
+        protected virtual IQueryable<T> GetAggreagteQueryable() => _dbSet;
     }
 }

@@ -2,14 +2,16 @@
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using ProjectTemplate.WEB.Shared
+@using ProjectTemplate.APPLICATION.Dtos.Queries.SomeQueries
+@using ProjectTemplate.APPLICATION.Dtos.Queries
 @attribute [Authorize]
 @inject HttpClient Http
 
-<h1>Weather forecast</h1>
+<h1>Somes</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
+@if (somes == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -18,20 +20,18 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Id</th>
+                <th>Value</th>
+                <th>Enum</th>                
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var some in somes)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@some.Id</td>
+                    <td>@some.SomeValue</td>
+                    <td>@some.SomeEnum</td>                    
                 </tr>
             }
         </tbody>
@@ -39,13 +39,14 @@ else
 }
 
 @code {
-    private WeatherForecast[] forecasts;
+    private IList<SomeDto> somes;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+            var listResulst  = await Http.GetFromJsonAsync<ListResultsDto<SomeDto>>("Somes");
+            somes = listResulst.Items;
         }
         catch (AccessTokenNotAvailableException exception)
         {

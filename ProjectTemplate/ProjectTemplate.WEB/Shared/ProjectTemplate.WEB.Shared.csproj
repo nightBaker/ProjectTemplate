@@ -4,4 +4,9 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\ProjectTemplate.APPLICATION.Dtos\ProjectTemplate.APPLICATION.Dtos.csproj" />
+    <ProjectReference Include="..\..\ProjectTemplate.DOMAIN.Dtos\ProjectTemplate.DOMAIN.Dtos.csproj" />
+  </ItemGroup>
+
 </Project>
