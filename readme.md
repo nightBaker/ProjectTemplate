@@ -24,3 +24,26 @@ cd docker
 docker-compose up
 ```
 * Finally, run app
+
+## Domain
+
+### IAggregateRoot
+
+	Interface stands for defining [aggregate root](https://martinfowler.com/bliki/DDD_Aggregate.html).
+	Therefore, IRepository can work only with aggregates as well as IUnitOfWork.
+	
+### Entity
+	
+	Any domain object is entity. Entity has ability to raise events.
+	
+### Domain event
+	
+	Domain event implements INotification abstraction from Mediatr. Finally, we use mediator to publish and hand such events.
+	We have two abstractions of event (INotification) : IPreSaveEvent and IPostSaveEvent for providing more managable behaviour.
+	For more details, refer to Persistence layer section.
+	
+### Value object
+	
+	[Value object](https://medium.com/swlh/value-objects-to-the-rescue-28c563ad97c6#:~:text=In%20DDD%2C%20value%20objects%20differ,attributes%20and%20should%20be%20immutable.)
+ is immutable object with ovverided equality methods, so they are compared by property values.
+	

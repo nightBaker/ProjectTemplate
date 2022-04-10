@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjectTemplate.APPLICATION.Interfaces.Persistence;
 using ProjectTemplate.APPLICATION.Interfaces.Persistence.CommandRepositories;
-using ProjectTemplate.DOMAIN.AggregatesModel.SomeAggregate;
 using ProjectTemplate.DOMAIN.SeedWork;
 using System;
 using System.Collections.Generic;

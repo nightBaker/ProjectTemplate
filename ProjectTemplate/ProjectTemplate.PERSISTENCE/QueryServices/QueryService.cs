@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ProjectTemplate.APPLICATION.Dtos.Queries;
-using ProjectTemplate.APPLICATION.Dtos.Queries.SomeQueries;
-using ProjectTemplate.APPLICATION.Dtos.Queries.SomeQueries.Something;
-using ProjectTemplate.APPLICATION.Dtos.Queries.SomeQueries.SomethingList;
 using ProjectTemplate.APPLICATION.Interfaces.Persistence.QueryRepositories;
-using ProjectTemplate.DOMAIN.AggregatesModel.SomeAggregate;
 using Sieve.Models;
 using Sieve.Services;
 using System.Linq;
