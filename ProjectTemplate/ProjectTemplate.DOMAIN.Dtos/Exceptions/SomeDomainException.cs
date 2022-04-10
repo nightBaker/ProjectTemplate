@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProjectTemplate.DOMAIN.Exceptions
+namespace ProjectTemplate.DOMAIN.Dtos.Exceptions
 {
     public class SomeDomainException : Exception
     {
