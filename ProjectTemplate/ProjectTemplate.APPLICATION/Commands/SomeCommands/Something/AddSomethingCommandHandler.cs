@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace ProjectTemplate.APPLICATION.Commands.SomeCommands.Something
 {
-    public class SomethingCommandHandler : IRequestHandler<AddSomethingCommand, long>
+    public class AddSomethingCommandHandler : IRequestHandler<AddSomethingCommand, long>
     {
         private ICommandRepository<Some> _repository { get; set; }
-        public SomethingCommandHandler(ICommandRepository<Some> repository)
+        public AddSomethingCommandHandler(ICommandRepository<Some> repository)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
