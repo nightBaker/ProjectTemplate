@@ -25,6 +25,13 @@ docker-compose up
 ```
 * Finally, run app
 
+## Standart onion vs blazor onion
+
+![blazor onion](/docs/images/readme/clean-blazor.png)
+
+As you can see, we want to share enums and exceptions from domain layer, DTOs from application layer with blazor project.
+Therefore, we've added extra DTO class library for each layer.
+
 ## Domain
 
 ### IAggregateRoot
