@@ -1,5 +1,5 @@
 ## Prerequisites
-* .NET 5
+* .NET 6
 * Docker (optionaly for databases)
 
 ## How to use
@@ -9,7 +9,7 @@
 
 * Install template
 ```cmd
-    dotnet new --install NightBaker.ProjectTemplate::0.1.0
+    dotnet new --install NightBaker.ProjectTemplate
 ```
 * You should see 
 ![dotnet new templates](/docs/images/readme/dotnet-new-templates.png)
