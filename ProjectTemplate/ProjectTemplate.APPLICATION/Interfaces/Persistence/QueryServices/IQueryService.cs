@@ -1,15 +1,14 @@
-﻿using ProjectTemplate.APPLICATION.Dtos.Queries;
-using ProjectTemplate.APPLICATION.Dtos.Queries.SomeQueries;
-using ProjectTemplate.APPLICATION.Dtos.Queries.SomeQueries.Something;
-using ProjectTemplate.APPLICATION.Dtos.Queries.SomeQueries.SomethingList;
-using Sieve.Models;
+﻿using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using ProjectTemplate.APPLICATION.Dtos.Queries;
+using Sieve.Models;
 
-namespace ProjectTemplate.APPLICATION.Interfaces.Persistence.QueryRepositories
+namespace ProjectTemplate.APPLICATION.Interfaces.Persistence.QueryServices
 {
     public interface IQueryService<TEntity, T>
     {
-        Task<T> GetAsync(long Id);
+        Task<T> GetAsync(Expression<Func<TEntity, bool>> predicate);
         Task<ListResultsDto<T>> GetAllAsync(SieveModel sieveModel);
     }
 }

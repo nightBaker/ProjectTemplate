@@ -3,12 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProjectTemplate.APPLICATION.Interfaces.Persistence;
 using ProjectTemplate.APPLICATION.Interfaces.Persistence.CommandRepositories;
-using ProjectTemplate.APPLICATION.Interfaces.Persistence.QueryRepositories;
+using ProjectTemplate.APPLICATION.Interfaces.Persistence.QueryServices;
 using ProjectTemplate.PERSISTENCE.Repositories.Commands;
-using ProjectTemplate.PERSISTENCE.Services.Queries;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using ProjectTemplate.PERSISTENCE.QueryServices;
 
 namespace ProjectTemplate.PERSISTENCE
 {
