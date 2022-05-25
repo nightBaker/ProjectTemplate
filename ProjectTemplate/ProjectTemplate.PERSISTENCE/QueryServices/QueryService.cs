@@ -1,13 +1,15 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ProjectTemplate.APPLICATION.Dtos.Queries;
-using ProjectTemplate.APPLICATION.Interfaces.Persistence.QueryRepositories;
+using ProjectTemplate.APPLICATION.Interfaces.Persistence.QueryServices;
 using Sieve.Models;
 using Sieve.Services;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ProjectTemplate.PERSISTENCE.Services.Queries
+namespace ProjectTemplate.PERSISTENCE.QueryServices
 {
     public class QueryService<TEntity, T> : IQueryService<TEntity, T> where TEntity : class
     {
@@ -26,24 +28,23 @@ namespace ProjectTemplate.PERSISTENCE.Services.Queries
 
         public async Task<ListResultsDto<T>> GetAllAsync(SieveModel sieveModel)
         {
-            var somes = _dbSet.AsNoTracking();
-            somes = _sieveProcessor.Apply(sieveModel, somes);
-            var sievedSomes = await somes.ToListAsync();
+            var entities = GetAggreagteQueryable().AsNoTracking();
+            entities = _sieveProcessor.Apply(sieveModel, entities);
+            var sievedEntities = await entities.ToListAsync();
 
             return new ListResultsDto<T>
             {
-                Items = sievedSomes.Select(some => _mapper.Map<TEntity, T>(some)).ToList(),
-                TotalCount = await somes.CountAsync()
+                Items = sievedEntities.Select(entity => _mapper.Map<TEntity, T>(entity)).ToList(),
+                TotalCount = await entities.CountAsync()
             };
         }
 
-
-        public async Task<T> GetAsync(long Id)
+        public async Task<T> GetAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            var entity = await _dbSet.FindAsync(Id);
+            var entity = await GetAggreagteQueryable().FirstOrDefaultAsync(predicate);
             return _mapper.Map<TEntity, T>(entity);
         }
 
-
+        protected virtual IQueryable<TEntity> GetAggreagteQueryable() => _dbSet;
     }
 }
