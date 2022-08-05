@@ -15,7 +15,7 @@ namespace ProjectTemplate.PERSISTENCE
         {
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDbContext<SomeDbContext>(options =>
+            services.AddDbContext<ProjectTemplateDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("ProjectTemplateDbConnection")));
 
             services.AddScoped(typeof(ICommandRepository<>),typeof( CommandRepository<>));

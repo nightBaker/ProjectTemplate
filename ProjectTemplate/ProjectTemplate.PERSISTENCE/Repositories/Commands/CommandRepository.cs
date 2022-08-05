@@ -12,10 +12,10 @@ namespace ProjectTemplate.PERSISTENCE.Repositories.Commands
 {
     public class CommandRepository<T> : ICommandRepository<T> where T : class, IAggregateRoot
     {
-        private readonly SomeDbContext _context;
+        private readonly ProjectTemplateDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public CommandRepository(SomeDbContext context, IUnitOfWork unitOfWork)
+        public CommandRepository(ProjectTemplateDbContext context, IUnitOfWork unitOfWork)
         {
             _context = context;
             UnitOfWork = unitOfWork;

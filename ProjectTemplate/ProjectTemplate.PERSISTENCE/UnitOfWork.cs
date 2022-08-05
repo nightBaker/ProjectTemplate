@@ -11,10 +11,10 @@ namespace ProjectTemplate.PERSISTENCE
 {
     public class UnitOfWork : IUnitOfWork
     {
-        readonly SomeDbContext _context;
+        readonly ProjectTemplateDbContext _context;
         readonly IMediator _mediator;
         
-        public UnitOfWork(SomeDbContext context, IMediator mediator)
+        public UnitOfWork(ProjectTemplateDbContext context, IMediator mediator)
         {
             _context = context;
             _mediator = mediator;
@@ -22,7 +22,7 @@ namespace ProjectTemplate.PERSISTENCE
 
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            (var preSaveEvents, var postSaveEvents) = _getAndClearDomainEvents();
+            var (preSaveEvents, postSaveEvents) = _getAndClearDomainEvents();
 
             await _dispatchDomainEventsAsync(preSaveEvents);
 
