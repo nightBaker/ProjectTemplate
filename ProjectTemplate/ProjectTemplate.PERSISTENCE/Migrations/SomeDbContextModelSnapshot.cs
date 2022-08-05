@@ -9,7 +9,7 @@ using ProjectTemplate.PERSISTENCE;
 
 namespace ProjectTemplate.PERSISTENCE.Migrations
 {
-    [DbContext(typeof(SomeDbContext))]
+    [DbContext(typeof(ProjectTemplateDbContext))]
     partial class SomeDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

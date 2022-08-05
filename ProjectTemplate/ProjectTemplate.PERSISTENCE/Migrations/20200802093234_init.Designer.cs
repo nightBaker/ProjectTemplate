@@ -8,7 +8,7 @@ using ProjectTemplate.PERSISTENCE;
 
 namespace ProjectTemplate.PERSISTENCE.Migrations
 {
-    [DbContext(typeof(SomeDbContext))]
+    [DbContext(typeof(ProjectTemplateDbContext))]
     [Migration("20200802093234_init")]
     partial class init
     {

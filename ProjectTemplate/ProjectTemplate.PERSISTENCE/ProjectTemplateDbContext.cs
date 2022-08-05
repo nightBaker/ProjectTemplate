@@ -3,9 +3,9 @@ using ProjectTemplate.DOMAIN.AggregatesModel.SomeAggregate;
 
 namespace ProjectTemplate.PERSISTENCE
 {
-    public class SomeDbContext : DbContext
+    public class ProjectTemplateDbContext : DbContext
     {
-        public SomeDbContext(DbContextOptions<SomeDbContext> options)
+        public ProjectTemplateDbContext(DbContextOptions<ProjectTemplateDbContext> options)
             : base(options)
         {
 

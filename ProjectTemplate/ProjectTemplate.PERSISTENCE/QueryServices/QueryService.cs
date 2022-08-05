@@ -13,12 +13,12 @@ namespace ProjectTemplate.PERSISTENCE.QueryServices
 {
     public class QueryService<TEntity, T> : IQueryService<TEntity, T> where TEntity : class
     {
-        readonly SomeDbContext _context;
+        readonly ProjectTemplateDbContext _context;
         readonly IMapper _mapper;
         readonly ISieveProcessor _sieveProcessor;
         readonly DbSet<TEntity> _dbSet;
 
-        public QueryService(SomeDbContext context, IMapper mapper, ISieveProcessor sieveProcessor)
+        public QueryService(ProjectTemplateDbContext context, IMapper mapper, ISieveProcessor sieveProcessor)
         {
             _context = context;
             _mapper = mapper;
