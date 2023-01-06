@@ -65,13 +65,21 @@ namespace ProjectTemplate.WEB.Server
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IBackgroundJobClient backgroundJobs, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app,
+                              IBackgroundJobClient backgroundJobs,
+                              IWebHostEnvironment env,
+                              ProjectTemplateDbContext projectTemplateDbContext,
+                              UserDbContext userDbContext)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();                
                 app.UseMigrationsEndPoint();
                 app.UseWebAssemblyDebugging();
+
+                //auto db migrations
+                projectTemplateDbContext.Database.Migrate();
+                userDbContext.Database.Migrate();
             }
             else
             {
@@ -100,6 +108,8 @@ namespace ProjectTemplate.WEB.Server
                 endpoints.MapFallbackToFile("index.html");
                 endpoints.MapHangfireDashboard();
             });
+
+            
         }
     }
 }
