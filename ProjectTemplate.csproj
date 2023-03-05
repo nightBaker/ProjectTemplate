@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.1.1</PackageVersion>
+    <PackageVersion>2.0.0</PackageVersion>
     <PackageId>NightBaker.ProjectTemplate</PackageId>
     <Title>Blazored clean architecture</Title>
     <Authors>NightBaker</Authors>
     <Description>Blazor project template hosted on clean architecture.</Description>
     <PackageTags>dotnet-new;blazor;</PackageTags>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
