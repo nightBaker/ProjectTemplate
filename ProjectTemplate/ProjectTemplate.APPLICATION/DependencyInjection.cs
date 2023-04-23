@@ -25,7 +25,6 @@ namespace ProjectTemplate.APPLICATION
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehavior<,>));
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).GetTypeInfo().Assembly));            
         }
     }
 }
