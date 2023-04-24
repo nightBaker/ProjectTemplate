@@ -46,8 +46,6 @@ namespace ProjectTemplate.WEB.Server
             services.AddApplication(Configuration);
             services.AddPersistence(Configuration);
 
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Startup>());
-
             services.AddDbContext<UserDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("ProjectTemplateUserDbConnection")));
